@@ -1,4 +1,4 @@
-package test;
+package tests;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,25 +6,23 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static test.testsdata.TestData.*;
+import static com.codeborne.selenide.Selenide.*;
+import static testData.TestData.*;
 
 public class FormaTests extends TestBase {
 
     @Test
     void successfullFormaTest() {
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $(".text-center").shouldHave(text("Student Registration Form"));
-
 
        //String firstName = "Maria";
         //String lastName = "Zaychikova";
         //String userEmail = "zaychikova@mail.com";
         //String userNumber = "+12345678901";
         // String currentAddress = "adress";
-
-
 
         $("id=[firstName]").setValue(firstName);
         $("id=[lastName]").setValue(lastName);
@@ -45,6 +43,13 @@ public class FormaTests extends TestBase {
         $("id=[stateCity-wrapper]").$(byText("NCR")).click();
         $("id=[stateCity-wrapper]").$(byText("Noida")).click();
         $("#submit").click();
+
+        //Проверка
+
+    //$(".modal-header").shouldHave(text("Thanks for submitting the form"));
+    //$(".table-responsive").$(byText("firstName")).parent().shouldHave(text("firstName"));
+    //$(".table-responsive").$(byText("lastName")).parent().shouldHave(text("lastName"));
+    //$(".table-responsive").$(byText("userEmail")).parent().shouldHave(text("userEmail"));
 
 }
 }
