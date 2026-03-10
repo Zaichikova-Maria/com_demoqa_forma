@@ -11,7 +11,7 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "144.0";
+        //Configuration.browserVersion = "144.0";
         Configuration.browserSize = "2560x1440";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
