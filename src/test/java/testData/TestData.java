@@ -13,5 +13,6 @@ public class TestData {
     public static String hobby = "Music";
     public static String state = "NCR";
     public static String city = "Noida";
+    public static String photo = "img/foto.jpg";
 
 }
