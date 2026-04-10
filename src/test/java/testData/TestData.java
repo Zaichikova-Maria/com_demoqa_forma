@@ -7,6 +7,7 @@ public class TestData {
     public static String userNumber = "8123456789";
     public static String currentAddress = "adress";
     public static String gender = "Female";
+    public static String day = "01";
     public static String month = "May";
     public static String year = "1988";
     public static String subject = "Math";
