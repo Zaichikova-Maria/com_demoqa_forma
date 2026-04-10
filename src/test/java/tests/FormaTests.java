@@ -1,9 +1,6 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import testData.TestData;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -40,7 +37,6 @@ public class FormaTests extends TestBase {
 
         $("#subjectsInput").setValue(subject).pressEnter();
         $("#hobbiesWrapper").$(byText(hobby)).click();
-        //$("#uploadPicture").uploadFile(new File("src/test/resources/img/foto.jpg"));
 
         $("#uploadPicture").uploadFromClasspath(photo);
 
@@ -63,7 +59,7 @@ public class FormaTests extends TestBase {
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text(subject));
 
 
-
+    }
 
 
 
