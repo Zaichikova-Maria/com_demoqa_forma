@@ -59,6 +59,10 @@ public class FormaTests extends TestBase {
         $(".table-responsive").$(byText("Gender")).parent().shouldHave(text(gender));
         $(".table-responsive").$(byText("Subjects")).parent().shouldHave(text(subject));
 
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text(day),text(month),text(year));
+        $(".table-responsive").$(byText("State and City")).parent().shouldHave(text(state),text(city));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("foto.jpg"));
+
 
     }
 
