@@ -1,10 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+
 import static testData.TestData.*;
 
 public class FormaTests extends TestBase {
@@ -14,6 +11,7 @@ public class FormaTests extends TestBase {
 
         practiceFormPage
                 .openPage()
+                .javaScript()
                 .typeFirstName(firstName)
                 .typeLastName(lastName)
                 .typeEmail(userEmail)
@@ -48,6 +46,7 @@ public class FormaTests extends TestBase {
         void negativeFormaTest() {
             practiceFormPage
                     .openPage()
+                    .javaScript()
                     .submitForm();
 
 //            проверка

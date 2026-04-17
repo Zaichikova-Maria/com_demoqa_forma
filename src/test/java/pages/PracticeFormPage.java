@@ -14,20 +14,20 @@ public class PracticeFormPage {
     ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
 
     //Elements
-  private SelenideElement firstNameInput = $("#firstName");
-  private SelenideElement lastNameInput = $("#lastName");
-  private SelenideElement userEmailInput = $("#userEmail");
-  private SelenideElement userNumberInput = $("#userNumber");
-  private SelenideElement currentAddressInput = $("#currentAddress");
-  private SelenideElement genterWrapper = $("#genterWrapper");
-  private SelenideElement stateSelect = $("#state");
-  private SelenideElement citySelect = $("#city");
-  private SelenideElement stateCityContainer = $("#stateCity-wrapper");
-  private SelenideElement submitButton = $("#submit");
-  private SelenideElement tableResults = $(".table-responsive");
-  private SelenideElement subjectsInput = $("#subjectsInput");
-  private SelenideElement hobbiesInput = $("#hobbiesWrapper");
-  private SelenideElement fotoUpload= $("#uploadPicture");
+  private final SelenideElement firstNameInput = $("#firstName");
+  private final SelenideElement lastNameInput = $("#lastName");
+  private final SelenideElement userEmailInput = $("#userEmail");
+  private final SelenideElement userNumberInput = $("#userNumber");
+  private final SelenideElement currentAddressInput = $("#currentAddress");
+  private final SelenideElement genterWrapper = $("#genterWrapper");
+  private final SelenideElement stateSelect = $("#state");
+  private final SelenideElement citySelect = $("#city");
+  private final SelenideElement stateCityContainer = $("#stateCity-wrapper");
+  private final SelenideElement submitButton = $("#submit");
+  private final SelenideElement tableResults = $(".table-responsive");
+  private final SelenideElement subjectsInput = $("#subjectsInput");
+  private final SelenideElement hobbiesInput = $("#hobbiesWrapper");
+  private final SelenideElement fotoUpload= $("#uploadPicture");
   private final SelenideElement calendarInput = $("#dateOfBirthInput");
 
 
@@ -49,11 +49,6 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPage() {
         open(" ");
-        executeJavaScript("""
-            document.getElementById('fixedban')?.remove();
-            document.querySelector('footer')?.remove();
-            """);
-
         $$(".card-body").findBy(text("Forms")).click();
         $$(".router-link").findBy(text("Practice Form")).click();
 
@@ -173,4 +168,15 @@ public class PracticeFormPage {
 
         return this;
     }
+
+    public PracticeFormPage javaScript() {
+
+        executeJavaScript("""
+            document.getElementById('fixedban')?.remove();
+            document.querySelector('footer')?.remove();
+            """);
+
+        return this;
+    }
+
 }
