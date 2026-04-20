@@ -19,15 +19,16 @@ public class TestData {
     public String userNumber = faker.phoneNumber().subscriberNumber(10);
     public String currentAddress = faker.address().fullAddress();;
     public String gender = randomUtils.getRandomGender();
-    public String hobby = randomUtils.getRandomHobbies();
-    public String photo = randomUtils.getRandomPhoto();
+//    public String hobby = randomUtils.getRandomHobbies();
+    public String hobby = faker.options().option("Sports", "Reading", "Music");
+//    public String photo = randomUtils.getRandomPhoto();
+    public String photo = faker.options().option("img/foto.jpg", "img/foto2.jpg");
     public String state = randomUtils.getRandomState();
     public String city = getRandomCity(state);
     public String subject = getSubject();
     public String month = getMonth ();
-    public int
-            year = faker.number().numberBetween(1991, 2099),
-            day = faker.number().numberBetween(1,28);
+    public String year = String.valueOf(faker.number().numberBetween(1920,2024));
+    public String day = String.format("%02d",faker.number().numberBetween(1,28));
 
 
     //public static String firstName = "Maria";
@@ -44,8 +45,6 @@ public class TestData {
 //    public static String day = "01";
 //    public static String month = "May";
 //    public static String year = "1988";
-
-
 
 
 }

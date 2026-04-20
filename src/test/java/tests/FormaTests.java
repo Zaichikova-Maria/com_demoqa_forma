@@ -40,9 +40,8 @@ public class FormaTests extends TestBase {
                 .checkResult("Gender",testData.gender)
                 .checkResult("Subjects",testData.subject)
                 .checkResult("State and City",testData.state+ " " +testData.city)
-                .checkResult("Picture","foto.jpg");
+                .checkResult("Picture","foto.jpg")
                 .checkResult("Date of Birth",testData.day + " " + testData.month + "," + testData.year);
-
 
     }
 

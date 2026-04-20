@@ -14,16 +14,17 @@ public class RandomUtils {
         return faker.options().option(genders);
     }
 
-    public static String getRandomHobbies() {
-        String[] hobby = {"Sports", "Reading", "Music"};
+//    public static String getRandomHobbies() {
+//        String[] hobby = {"Sports", "Reading", "Music"};
+//
+//        return faker.options().option(hobby);
+//    }
 
-        return faker.options().option(hobby);
-    }
-
-    public static String getRandomPhoto() {
-        String[] photo = {"img/foto.jpg", "img/foto2.jpg"};
-        return faker.options().option(photo);
-    }
+//    public static String getRandomPhoto() {
+//        String[] photo = {"img/foto.jpg", "img/foto2.jpg"};
+//
+//        return faker.options().option(photo);
+//    }
 
 
     public static String getRandomState() {

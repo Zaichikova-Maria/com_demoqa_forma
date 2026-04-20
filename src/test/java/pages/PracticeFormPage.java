@@ -112,7 +112,7 @@ public class PracticeFormPage {
     }
 
 
-    public PracticeFormPage setDayOfBirth(int day, String month, int year) {
+    public PracticeFormPage setDayOfBirth(String day, String month, String year) {
         calendarInput.click();
         calendar.setDate(day,month,year);
 
