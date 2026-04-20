@@ -112,7 +112,7 @@ public class PracticeFormPage {
     }
 
 
-    public PracticeFormPage setDayOfBirth(String day, String month, String year) {
+    public PracticeFormPage setDayOfBirth(int day, String month, int year) {
         calendarInput.click();
         calendar.setDate(day,month,year);
 
@@ -122,6 +122,7 @@ public class PracticeFormPage {
     public PracticeFormPage setState(String value) {
         stateSelect.click();
         stateCityContainer.$(byText(value)).click();
+
         return this;
     }
 
