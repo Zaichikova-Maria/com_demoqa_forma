@@ -3,7 +3,6 @@ package tests;
 import org.junit.jupiter.api.Test;
 import testData.TestData;
 
-import static testData.TestData.*;
 
 public class FormaTests extends TestBase {
 
@@ -40,7 +39,7 @@ public class FormaTests extends TestBase {
                 .checkResult("Gender",testData.gender)
                 .checkResult("Subjects",testData.subject)
                 .checkResult("State and City",testData.state+ " " +testData.city)
-                .checkResult("Picture","foto.jpg")
+                .checkResult("Picture",testData.photo)
                 .checkResult("Date of Birth",testData.day + " " + testData.month + "," + testData.year);
 
     }
