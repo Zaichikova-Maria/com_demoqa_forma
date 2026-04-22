@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 
 
 public class TestData {
-    static Faker faker = new Faker();
+    Faker faker = new Faker();
 
 
 // Значения с faker
@@ -22,7 +22,7 @@ public class TestData {
     public String month = faker.options().option("January","February","March","April","May","June","July","August","September","October","November","December");
     public String year = String.valueOf(faker.number().numberBetween(1920,2024));
     public String day = String.format("%02d",faker.number().numberBetween(1,28));
-    public static String getRandomCity(String state) {
+    public String getRandomCity(String state) {
         return switch (state) {
             case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
             case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Meerut");
