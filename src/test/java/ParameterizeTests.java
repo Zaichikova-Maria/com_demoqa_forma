@@ -1,27 +1,21 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 import testData.data.Language;
 import tests.TestBase;
 
+import java.util.List;
+import java.util.stream.Stream;
+
+import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
-import static org.openqa.selenium.bidi.script.LocalValue.setValue;
 
 
 public class ParameterizeTests extends TestBase {
 
-//    @BeforeEach
-//    void setUp() {
-//        open("https://uniofweb.ru/");
-//    }
 
     @ParameterizedTest (name = "Тест с пользователем: {0} {1} {2}")
 
@@ -67,13 +61,34 @@ public class ParameterizeTests extends TestBase {
 
 
     @ParameterizedTest
-@EnumSource(Language.class)
+    @DisplayName("Проверка заголовка H1 EnumSource")
+    @EnumSource(Language.class)
 
 void linguaShouldDisplayCorrectText(Language language) {
-    open("https://lingua.com/fr/");
+    open("https://lingua.com/");
     $(".versionright").$(byText(language.name())).click();
     $("h1").shouldHave(text(language.description));
 }
+
+static Stream<Arguments> linguaShouldDisplayCorrectLanguage() {
+        return Stream.of(
+                Arguments.of(Language.EN, List.of("That's Lingua", "Reading and Understanding of Texts", "Learn Vocabulary", "Grammar exercises") ),
+                Arguments.of(Language.FR, List.of("C'est ça Lingua", "Lecture et compréhension de textes", "Acquisition de vocabulaire", "Exercices") ),
+                Arguments.of(Language.IT, List.of("Questo è Lingua.com", "Lettura e comprensione dei testi", "Impara il vocabolario", "Esercizi") )
+        );
+    }
+
+    @MethodSource
+    @ParameterizedTest
+    @DisplayName("Проверка заголовков H2 MethodSource")
+
+    void linguaShouldDisplayCorrectLanguage(Language language, List<String> learnLanguage) {
+        open("https://lingua.com/fr/");
+        $(".versionright").$(byText(language.name())).click();
+        $$("h2").shouldHave(texts(learnLanguage));
+    }
+
+
 }
 
 
